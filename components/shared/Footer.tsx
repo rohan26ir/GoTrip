@@ -56,7 +56,7 @@ const Footer: React.FC = () => {
   return (
     <div className="">
       
-      <div className="w-full mx-auto pt-10 px-10 rounded-t-2xl bg-black text-white border  relative">
+      <div className="max-w-[2500px] mx-auto pt-10 px-10 rounded-t-2xl bg-black text-white border  relative">
         
         <div className="flex flex-col lg:flex-row justify-between gap-5 md:gap-20  pb-10">
           {/* Logo + description + social icons */}

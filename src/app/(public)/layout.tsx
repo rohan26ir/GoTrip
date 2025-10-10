@@ -8,8 +8,8 @@ interface PublicLayoutProps {
 
 export default function PublicLayout({ children }: PublicLayoutProps) {
   return (
-    <div className="max-w-[2000px] mx-auto">
-      <header className="">
+    <div className="">
+      <header className="h-20">
         <Navbar />
       </header>
 
