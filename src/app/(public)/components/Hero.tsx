@@ -42,7 +42,7 @@ const Hero = () => {
           {/* Description */}
           <p className="text-lg sm:text-xl text-gray-200 mb-8 leading-relaxed max-w-xl">
             Experience breathtaking landscapes, rich cultural heritage, and unforgettable adventures.
-            From the world's longest sea beach to the mystical Sundarbans - your journey begins here.
+            From the world-s longest sea beach to the mystical Sundarbans - your journey begins here.
           </p>
 
           {/* CTA Buttons */}
