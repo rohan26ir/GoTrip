@@ -8,8 +8,8 @@ interface PublicLayoutProps {
 
 export default function PublicLayout({ children }: PublicLayoutProps) {
   return (
-    <div className="flex flex-col w-[95%] max-w-[2000px] mx-auto my-5">
-      <header className="mb-5">
+    <div className="max-w-[2000px] mx-auto">
+      <header className="">
         <Navbar />
       </header>
 

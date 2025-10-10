@@ -59,7 +59,7 @@ const Navbar: React.FC = () => {
         { id: 43, name: "Tour Guide", href: "/services/guide" },
       ],
     },
-    { id: 5, name: "About", href: "/about" },
+    { id: 5, name: "About", href: "/AboutUs" },
     { id: 6, name: "Contact", href: "/contact" },
   ];
 
@@ -81,8 +81,8 @@ const Navbar: React.FC = () => {
   }, []);
 
   return (
-    <nav className="sticky top-0 z-50 bg-white shadow-lg border-b border-gray-100">
-      <div className="w-[95%] mx-auto flex justify-between items-center py-4">
+    <nav className="fixed flex w-[100%] mx-auto z-50 bg-white shadow-lg border-b border-gray-100">
+      <div className="w-[90%] mx-auto flex justify-between items-center py-4">
         {/* Logo */}
         <div className="flex items-center">
           <Link
