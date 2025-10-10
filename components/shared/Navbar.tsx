@@ -20,7 +20,9 @@ interface MenuItem {
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
   const [activeDropdown, setActiveDropdown] = useState<number | null>(null);
+  const [mobileDropdown, setMobileDropdown] = useState<number | null>(null);
   const dropdownRef = useRef<HTMLDivElement | null>(null);
+  const mobileMenuRef = useRef<HTMLDivElement | null>(null);
 
   const menubar: MenuItem[] = [
     { id: 1, name: "Home", href: "/" },
@@ -63,33 +65,62 @@ const Navbar: React.FC = () => {
     { id: 6, name: "Contact", href: "/contact" },
   ];
 
-  const user = true; // mock user
+  const user = false; // mock user
 
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (
         dropdownRef.current &&
-        !dropdownRef.current.contains(event.target as Node)
+         !dropdownRef.current.contains(event.target as Node)
       ) {
         setActiveDropdown(null);
+      }
+      if (
+        mobileMenuRef.current &&
+         !mobileMenuRef.current.contains(event.target as Node) &&
+        isOpen
+      ) {
+        setIsOpen(false);
+        setMobileDropdown(null);
       }
     };
 
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [isOpen]);
+
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isOpen]);
+
+  const toggleMobileDropdown = (id: number) => {
+    setMobileDropdown(mobileDropdown === id ? null : id);
+  };
+
+  const closeMobileMenu = () => {
+    setIsOpen(false);
+    setMobileDropdown(null);
+  };
 
   return (
-    <nav className="fixed flex w-[100%] mx-auto z-50 bg-white shadow-lg border-b border-gray-100">
-      <div className="w-[90%] mx-auto flex justify-between items-center py-4">
+    <nav className="fixed w-full mx-auto z-50 bg-black text-white shadow-lg border-b border-gray-800">
+      <div className="w-full px-4 sm:px-6 lg:px-8 mx-auto flex justify-between items-center py-3 lg:py-4">
         {/* Logo */}
         <div className="flex items-center">
           <Link
             href="/"
             className="text-2xl font-bold flex items-center gap-2"
           >
-            The GO Tour
+            <h1 className="text-2xl sm:text-3xl text-[#FA6741] font-extrabold">The GoTour</h1>
           </Link>
         </div>
 
@@ -107,7 +138,7 @@ const Navbar: React.FC = () => {
             >
               <Link
                 href={item.href}
-                className="flex items-center py-2 text-gray-800 hover:text-green-600 transition-colors duration-300 font-semibold text-[15px]"
+                className="flex items-center py-2 hover:text-[#FA6741] transition-colors duration-300 font-semibold text-[15px]"
               >
                 {item.name}
                 {item.dropdown && <FiChevronDown className="ml-1 text-sm" />}
@@ -116,11 +147,10 @@ const Navbar: React.FC = () => {
               {/* Dropdown Menu */}
               {item.dropdown && (
                 <div
-                  className={`absolute top-full left-0 w-56 bg-white rounded-xl shadow-2xl py-3 transition-all duration-300 z-50 border border-gray-100 ${
-                    activeDropdown === item.id
+                  className={`absolute top-full left-0 w-56 bg-white rounded-xl shadow-2xl py-3 transition-all duration-300 z-50 border border-gray-100 ${activeDropdown === item.id
                       ? "opacity-100 visible translate-y-0"
                       : "opacity-0 invisible -translate-y-2"
-                  }`}
+                    }`}
                 >
                   {item.dropdown.map((dropdownItem) => (
                     <Link
@@ -141,21 +171,16 @@ const Navbar: React.FC = () => {
         <div className="hidden lg:flex items-center gap-4">
           {user ? (
             <Link href="/dashboard">
-              <button className="flex items-center gap-2 px-5 py-2.5 bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-full hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer">
+              <button className="flex items-center gap-2 px-5 py-2.5 bg-[#FA6741] text-white font-semibold rounded-full hover:bg-[#e55a34] transition-all duration-300 shadow-lg hover:shadow-xl cursor-pointer">
                 <FiUser className="text-sm" />
                 My Account
               </button>
             </Link>
           ) : (
             <>
-              <Link href="/signin">
-                <button className="cursor-pointer px-5 py-2.5 text-gray-700 font-semibold hover:text-green-600 transition-colors duration-300">
-                  Sign In
-                </button>
-              </Link>
               <Link href="/signup">
-                <button className="cursor-pointer px-6 py-2.5 bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-full hover:from-green-600 hover:to-blue-600 transition-all duration-300 shadow-lg hover:shadow-xl">
-                  Get Started
+                <button className="cursor-pointer px-6 py-2.5 bg-[#FA6741] rounded-full hover:bg-[#e55a34] transition-all duration-300 shadow-lg hover:shadow-xl font-semibold">
+                  Sign Up
                 </button>
               </Link>
             </>
@@ -167,55 +192,93 @@ const Navbar: React.FC = () => {
           <button
             onClick={() => setIsOpen(!isOpen)}
             aria-label="Toggle Menu"
-            className="p-3 rounded-xl bg-gray-50 hover:bg-green-50 text-gray-700 transition-colors duration-300 border border-gray-200"
+            className="p-3 rounded-xl bg-gray-800 hover:bg-gray-700 text-white transition-colors duration-300 border border-gray-700"
           >
             {isOpen ? <FiX size={20} /> : <FiMenu size={20} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Dropdown */}
-      <div
-        className={`lg:hidden bg-white overflow-hidden transition-all duration-500 ease-in-out border-t border-gray-100 ${
-          isOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0"
-        }`}
-      >
-        <div className="flex flex-col gap-1 px-5 py-4 font-medium">
-          {menubar.map((item) => (
-            <div key={item.id} className="border-b border-gray-100 last:border-b-0">
-              <Link
-                href={item.href}
-                onClick={() => setIsOpen(false)}
-                className="flex items-center justify-between py-4 px-3 text-gray-800 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors duration-200 font-semibold"
-              >
-                {item.name}
-                {item.dropdown && <FiChevronDown className="text-gray-400" />}
-              </Link>
+      {/* Mobile Menu Overlay */}
+      {isOpen && (
+        <div
+          className="lg:hidden fixed inset-0 bg-black bg-opacity-50 z-40 transition-opacity duration-300"
+          onClick={() => setIsOpen(false)}
+        />
+      )}
 
-              {item.dropdown && (
-                <div className="pl-5 mb-2 space-y-1 bg-gray-50 rounded-lg py-2">
-                  {item.dropdown.map((dropdownItem) => (
-                    <Link
-                      key={dropdownItem.id}
-                      href={dropdownItem.href}
-                      onClick={() => setIsOpen(false)}
-                      className="block py-3 px-3 text-sm text-gray-600 rounded-lg hover:bg-green-100 hover:text-green-600 transition-colors duration-200 border-l-2 border-transparent hover:border-green-500"
+      {/* Mobile Sidebar Menu */}
+      <div
+        ref={mobileMenuRef}
+        className={`lg:hidden fixed top-0 left-0 h-full w-80 max-w-[85vw] bg-white shadow-2xl z-50 transform transition-transform duration-300 ease-in-out ${isOpen ? "translate-x-0" : "-translate-x-full"
+          }`}
+      >
+        {/* Mobile Header */}
+        <div className="flex items-center justify-between p-4 border-b border-gray-200 bg-white">
+          <Link href="/" onClick={closeMobileMenu}>
+            <h1 className="text-2xl text-[#FA6741] font-extrabold">The GoTour</h1>
+          </Link>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-2 rounded-lg hover:bg-gray-100 transition-colors duration-200"
+          >
+            <FiX size={24} className="text-gray-600" />
+          </button>
+        </div>
+
+        {/* Mobile Menu Items */}
+        <div className="h-full overflow-y-auto pb-24">
+          <div className="flex flex-col py-4">
+            {menubar.map((item) => (
+              <div key={item.id} className="border-b border-gray-100 last:border-b-0">
+                {item.dropdown ? (
+                  <div>
+                    <button
+                      onClick={() => toggleMobileDropdown(item.id)}
+                      className="flex items-center justify-between w-full py-4 px-6 text-gray-800 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors duration-200 font-semibold text-left"
                     >
-                      {dropdownItem.name}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </div>
-          ))}
+                      {item.name}
+                      <FiChevronDown
+                        className={`text-gray-400 transition-transform duration-200 ${mobileDropdown === item.id ? "rotate-180" : ""
+                          }`}
+                      />
+                    </button>
+
+                    {mobileDropdown === item.id && (
+                      <div className="bg-gray-50 py-2">
+                        {item.dropdown.map((dropdownItem) => (
+                          <Link
+                            key={dropdownItem.id}
+                            href={dropdownItem.href}
+                            onClick={closeMobileMenu}
+                            className="block py-3 px-10 text-sm text-gray-600 rounded-lg hover:bg-green-100 hover:text-green-600 transition-colors duration-200 border-l-2 border-transparent hover:border-green-500"
+                          >
+                            {dropdownItem.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <Link
+                    href={item.href}
+                    onClick={closeMobileMenu}
+                    className="flex items-center py-4 px-6 text-gray-800 rounded-lg hover:bg-green-50 hover:text-green-600 transition-colors duration-200 font-semibold"
+                  >
+                    {item.name}
+                  </Link>
+                )}
+              </div>
+            ))}
+          </div>
 
           {/* Mobile Buttons */}
-          <div className="mt-6 pt-4 border-t border-gray-200 space-y-3">
+          <div className="absolute bottom-0 left-0 right-0 p-6 bg-white border-t border-gray-200 space-y-3">
             {user ? (
               <Link href="/dashboard" className="block">
                 <button
-                  onClick={() => setIsOpen(false)}
-                  className="w-full py-3.5 px-4 text-center bg-gradient-to-r from-green-500 to-green-600 text-white font-semibold rounded-xl hover:from-green-600 hover:to-green-700 transition-all duration-300 shadow-lg cursor-pointer"
+                  onClick={closeMobileMenu}
+                  className="w-full py-3.5 px-4 text-center bg-[#FA6741] text-white font-semibold rounded-xl hover:bg-[#e55a34] transition-all duration-300 shadow-lg cursor-pointer"
                 >
                   My Account
                 </button>
@@ -224,7 +287,7 @@ const Navbar: React.FC = () => {
               <>
                 <Link href="/signin" className="block">
                   <button
-                    onClick={() => setIsOpen(false)}
+                    onClick={closeMobileMenu}
                     className="w-full py-3.5 px-4 text-center text-gray-700 rounded-xl font-semibold hover:bg-gray-100 transition-colors duration-200 border border-gray-200"
                   >
                     Sign In
@@ -232,8 +295,8 @@ const Navbar: React.FC = () => {
                 </Link>
                 <Link href="/signup" className="block">
                   <button
-                    onClick={() => setIsOpen(false)}
-                    className="w-full py-3.5 px-4 text-center bg-gradient-to-r from-green-500 to-blue-500 text-white font-semibold rounded-xl hover:from-green-600 hover:to-blue-600 transition-all duration-300 shadow-lg"
+                    onClick={closeMobileMenu}
+                    className="w-full py-3.5 px-4 text-center bg-[#FA6741] text-white font-semibold rounded-xl hover:bg-[#e55a34] transition-all duration-300 shadow-lg"
                   >
                     Create Account
                   </button>
