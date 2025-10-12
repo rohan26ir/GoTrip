@@ -1,0 +1,364 @@
+{
+  "activities": [
+    {
+      "id": 1,
+      "price": 35,
+      "type": "Beach",
+      "bookUrl": "/Book-Now",
+      "color": "#3B82F6",
+      "name": "Cox's Bazar Beach Tour",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Cox's Bazar",
+      "highlights": [
+        "World's longest beach",
+        "Sunset viewing",
+        "Beach activities",
+        "Local seafood"
+      ],
+      "bestFor": "Family & Couples"
+    },
+    {
+      "id": 2,
+      "price": 50,
+      "type": "Hill Station",
+      "bookUrl": "/Book-Now",
+      "color": "#10B981",
+      "name": "Bandarban Hill Trek",
+      "image": "/activity/Surfing.png",
+      "duration": "2 days",
+      "location": "Bandarban",
+      "highlights": [
+        "Boga Lake",
+        "Nilgiri Hills",
+        "Tribal villages",
+        "Waterfalls"
+      ],
+      "bestFor": "Adventure Seekers"
+    },
+    {
+      "id": 3,
+      "price": 65,
+      "type": "Wildlife",
+      "bookUrl": "/Book-Now",
+      "color": "#EAB308",
+      "name": "Sundarbans Safari",
+      "image": "/activity/Fjord Kayaking.webp",
+      "duration": "3 days",
+      "location": "Sundarbans",
+      "highlights": [
+        "Royal Bengal Tigers",
+        "Mangrove forest",
+        "Bird watching",
+        "River cruise"
+      ],
+      "bestFor": "Nature Lovers"
+    },
+    {
+      "id": 4,
+      "price": 25,
+      "type": "Island",
+      "bookUrl": "/Book-Now",
+      "color": "#14B8A6",
+      "name": "St. Martin's Island Tour",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "St. Martin's Island",
+      "highlights": [
+        "Coral beach",
+        "Coconut groves",
+        "Snorkeling",
+        "Fresh seafood"
+      ],
+      "bestFor": "Beach Enthusiasts"
+    },
+    {
+      "id": 5,
+      "price": 30,
+      "type": "Cultural",
+      "bookUrl": "/Book-Now",
+      "color": "#8B5CF6",
+      "name": "Old Dhaka Heritage Walk",
+      "image": "/activity/Cycling.png",
+      "duration": "6 hours",
+      "location": "Dhaka",
+      "highlights": [
+        "Ahsan Manzil",
+        "Lalbagh Fort",
+        "Sadarghat",
+        "Local street food"
+      ],
+      "bestFor": "History Buffs"
+    },
+    {
+      "id": 6,
+      "price": 40,
+      "type": "Adventure",
+      "bookUrl": "/Book-Now",
+      "color": "#EF4444",
+      "name": "Rangamati Lake Cruise",
+      "image": "/activity/Fjord Kayaking.webp",
+      "duration": "Full day",
+      "location": "Rangamati",
+      "highlights": [
+        "Kaptai Lake",
+        "Tribal museum",
+        "Suspension bridge",
+        "Hanging bridge"
+      ],
+      "bestFor": "Photography & Relaxation"
+    },
+    {
+      "id": 7,
+      "price": 45,
+      "type": "Tea Garden",
+      "bookUrl": "/Book-Now",
+      "color": "#059669",
+      "name": "Sylhet Tea Estate Tour",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Sylhet",
+      "highlights": [
+        "Tea plantation",
+        "Jaflong",
+        "Ratargul Swamp Forest",
+        "Seven-color tea"
+      ],
+      "bestFor": "Nature & Culture"
+    },
+    {
+      "id": 8,
+      "price": 55,
+      "type": "Archaeological",
+      "bookUrl": "/Book-Now",
+      "color": "#F97316",
+      "name": "Paharpur Buddhist Monastery",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Naogaon",
+      "highlights": [
+        "UNESCO World Heritage",
+        "Ancient ruins",
+        "Terracotta artwork",
+        "Museum"
+      ],
+      "bestFor": "History & Archaeology"
+    },
+    {
+      "id": 9,
+      "price": 38,
+      "type": "Island",
+      "bookUrl": "/Book-Now",
+      "color": "#06B6D4",
+      "name": "Nijhum Dwip Island Escape",
+      "image": "/activity/Surfing.png",
+      "duration": "2 days",
+      "location": "Nijhum Dwip",
+      "highlights": [
+        "Spotted deer",
+        "Pristine beaches",
+        "Mangrove walks",
+        "Bird sanctuary"
+      ],
+      "bestFor": "Nature Enthusiasts"
+    },
+    {
+      "id": 10,
+      "price": 42,
+      "type": "Adventure",
+      "bookUrl": "/Book-Now",
+      "color": "#DC2626",
+      "name": "Sajek Valley Adventure",
+      "image": "/activity/Fjord Kayaking.webp",
+      "duration": "2 days",
+      "location": "Sajek Valley",
+      "highlights": [
+        "Cloud views",
+        "Tribal culture",
+        "Mountain trails",
+        "Sunrise point"
+      ],
+      "bestFor": "Adventure Lovers"
+    },
+    {
+      "id": 11,
+      "price": 28,
+      "type": "Cultural",
+      "bookUrl": "/Book-Now",
+      "color": "#7C3AED",
+      "name": "Mahasthangarh Heritage Tour",
+      "image": "/activity/Cycling.png",
+      "duration": "Half day",
+      "location": "Bogra",
+      "highlights": [
+        "Ancient citadel",
+        "Buddhist vihara",
+        "Museum artifacts",
+        "Historical ruins"
+      ],
+      "bestFor": "History Enthusiasts"
+    },
+    {
+      "id": 12,
+      "price": 48,
+      "type": "Wildlife",
+      "bookUrl": "/Book-Now",
+      "color": "#16A34A",
+      "name": "Lawachara National Park Trek",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Moulvibazar",
+      "highlights": [
+        "Hoolock gibbons",
+        "Tropical rainforest",
+        "Tribal villages",
+        "Wildlife spotting"
+      ],
+      "bestFor": "Wildlife Lovers"
+    },
+    {
+      "id": 13,
+      "price": 32,
+      "type": "Beach",
+      "bookUrl": "/Book-Now",
+      "color": "#2563EB",
+      "name": "Kuakata Sea Beach Experience",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Kuakata",
+      "highlights": [
+        "Sunrise & sunset",
+        "Buddhist temple",
+        "Fishing village",
+        "Beach cycling"
+      ],
+      "bestFor": "Photography Lovers"
+    },
+    {
+      "id": 14,
+      "price": 58,
+      "type": "Hill Station",
+      "bookUrl": "/Book-Now",
+      "color": "#10B981",
+      "name": "Khagrachari Hill District Tour",
+      "image": "/activity/Fjord Kayaking.webp",
+      "duration": "3 days",
+      "location": "Khagrachari",
+      "highlights": [
+        "Alutila Cave",
+        "Hanging bridge",
+        "Tribal markets",
+        "Waterfalls"
+      ],
+      "bestFor": "Explorers"
+    },
+    {
+      "id": 15,
+      "price": 36,
+      "type": "River",
+      "bookUrl": "/Book-Now",
+      "color": "#0891B2",
+      "name": "Rocket Steamer Journey",
+      "image": "/activity/Fjord Kayaking.webp",
+      "duration": "Overnight",
+      "location": "Dhaka to Khulna",
+      "highlights": [
+        "Historic paddlewheel",
+        "River life views",
+        "Colonial experience",
+        "Scenic journey"
+      ],
+      "bestFor": "Experience Seekers"
+    },
+    {
+      "id": 16,
+      "price": 44,
+      "type": "Tea Garden",
+      "bookUrl": "/Book-Now",
+      "color": "#059669",
+      "name": "Srimangal Tea Capital Tour",
+      "image": "/activity/Surfing.png",
+      "duration": "2 days",
+      "location": "Srimangal",
+      "highlights": [
+        "Tea garden walks",
+        "Lawachara forest",
+        "Tribal villages",
+        "Seven-layer tea"
+      ],
+      "bestFor": "Tea Lovers"
+    },
+    {
+      "id": 17,
+      "price": 52,
+      "type": "Adventure",
+      "bookUrl": "/Book-Now",
+      "color": "#DC2626",
+      "name": "Boga Lake Expedition",
+      "image": "/activity/Fjord Kayaking.webp",
+      "duration": "3 days",
+      "location": "Bandarban",
+      "highlights": [
+        "Mountain lake",
+        "Tribal homestay",
+        "Trekking trails",
+        "Night camping"
+      ],
+      "bestFor": "Trekkers"
+    },
+    {
+      "id": 18,
+      "price": 26,
+      "type": "Cultural",
+      "bookUrl": "/Book-Now",
+      "color": "#9333EA",
+      "name": "Puthia Temple Complex Visit",
+      "image": "/activity/Cycling.png",
+      "duration": "Half day",
+      "location": "Rajshahi",
+      "highlights": [
+        "Hindu temples",
+        "Terracotta art",
+        "Historical architecture",
+        "Photography spots"
+      ],
+      "bestFor": "Culture Enthusiasts"
+    },
+    {
+      "id": 19,
+      "price": 60,
+      "type": "Wildlife",
+      "bookUrl": "/Book-Now",
+      "color": "#CA8A04",
+      "name": "Teknaf Wildlife Sanctuary",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Teknaf",
+      "highlights": [
+        "Asian elephants",
+        "Diverse wildlife",
+        "Nature trails",
+        "Bird watching"
+      ],
+      "bestFor": "Wildlife Photographers"
+    },
+    {
+      "id": 20,
+      "price": 34,
+      "type": "Island",
+      "bookUrl": "/Book-Now",
+      "color": "#0EA5E9",
+      "name": "Hatiya Island Discovery",
+      "image": "/activity/Surfing.png",
+      "duration": "Full day",
+      "location": "Hatiya",
+      "highlights": [
+        "Coastal villages",
+        "Fishing culture",
+        "Beach walks",
+        "Local cuisine"
+      ],
+      "bestFor": "Off-beat Travelers"
+    }
+  ]
+}
