@@ -10,7 +10,7 @@ interface SearchFilterProps<T> {
   className?: string;
 }
 
-function SearchFilter<T extends Record<string, any>>({
+function SearchFilter<T extends Record<string, unknown>>({
   data,
   onFilteredData,
   searchFields = [],
@@ -27,14 +27,14 @@ function SearchFilter<T extends Record<string, any>>({
   // Get unique types from data
   const getUniqueTypes = (): string[] => {
     if (!typeField) return [];
-    const types = data.map(item => item[typeField] as string);
+    const types = data.map(item => String(item[typeField]));
     return ['all', ...Array.from(new Set(types))];
   };
 
   // Get unique locations from data
   const getUniqueLocations = (): string[] => {
     if (!locationField) return [];
-    const locations = data.map(item => item[locationField] as string);
+    const locations = data.map(item => String(item[locationField]));
     return ['all', ...Array.from(new Set(locations))];
   };
 
@@ -56,7 +56,7 @@ function SearchFilter<T extends Record<string, any>>({
             return value.toLowerCase().includes(search.toLowerCase());
           }
           if (Array.isArray(value)) {
-            return value.some(v => 
+            return value.some((v: unknown) => 
               String(v).toLowerCase().includes(search.toLowerCase())
             );
           }
@@ -67,19 +67,19 @@ function SearchFilter<T extends Record<string, any>>({
 
     // Type filter
     if (type !== 'all' && typeField) {
-      filtered = filtered.filter(item => item[typeField] === type);
+      filtered = filtered.filter(item => String(item[typeField]) === type);
     }
 
     // Location filter
     if (location !== 'all' && locationField) {
-      filtered = filtered.filter(item => item[locationField] === location);
+      filtered = filtered.filter(item => String(item[locationField]) === location);
     }
 
     // Price sort
     if (sort !== 'default' && priceField) {
       filtered.sort((a, b) => {
-        const priceA = a[priceField] as number;
-        const priceB = b[priceField] as number;
+        const priceA = Number(a[priceField]) || 0;
+        const priceB = Number(b[priceField]) || 0;
         return sort === 'low-high' ? priceA - priceB : priceB - priceA;
       });
     }
@@ -222,7 +222,7 @@ function SearchFilter<T extends Record<string, any>>({
           <div className="flex flex-wrap gap-2">
             {searchQuery && (
               <span className="inline-flex items-center px-3 py-1 rounded-full text-sm bg-red-100 text-red-700">
-                Search: "{searchQuery}"
+                Search: {searchQuery}
                 <button
                   onClick={() => handleSearch('')}
                   className="ml-2 hover:text-red-900"
