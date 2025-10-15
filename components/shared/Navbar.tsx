@@ -4,7 +4,13 @@ import Link from "next/link";
 import { useState, useRef, useEffect } from "react";
 import { FiMenu, FiX, FiChevronDown, FiUser } from "react-icons/fi";
 
-interface DropdownItem {
+
+
+
+// Global use for width
+// w-[95%] lg:w-[1100px] xl:w-[1200px] 2xl:w-[1700px] mx-auto
+
+interface dropdownItem {
   id: number;
   name: string;
   href: string;
@@ -14,7 +20,7 @@ interface MenuItem {
   id: number;
   name: string;
   href: string;
-  dropdown?: DropdownItem[];
+  dropdown?: dropdownItem[];
 }
 
 const Navbar: React.FC = () => {
@@ -65,7 +71,7 @@ const Navbar: React.FC = () => {
     { id: 6, name: "Contact", href: "/contact" },
   ];
 
-  const user = false; // mock user
+  const user = true; // mock user
 
   // Close dropdown when clicking outside
   useEffect(() => {
@@ -103,7 +109,7 @@ const Navbar: React.FC = () => {
   }, [isOpen]);
 
   const toggleMobileDropdown = (id: number) => {
-    setMobileDropdown(mobileDropdown === id ? null : id);
+    setMobileDropdown(mobileDropdown ===id? null : id);
   };
 
   const closeMobileMenu = () => {
@@ -113,7 +119,7 @@ const Navbar: React.FC = () => {
 
   return (
     <nav className="fixed w-full mx-auto z-50 bg-black text-white shadow-lg border-b border-gray-800">
-      <div className="max-w-[2500px] h-20 mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-3 lg:py-4">
+      <div className="w-[95%] lg:w-[1100px] xl:w-[1200px] 2xl:w-[1700px]     h-20 mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-3 lg:py-4">
         {/* Logo */}
         <div className="flex items-center">
           <Link

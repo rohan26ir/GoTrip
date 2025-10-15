@@ -1,6 +1,7 @@
 import React from "react";
 import Hero from "./components/Hero";
 import ActivitiesForTraveler from "./components/ActivitiesForTraveler";
+import NewsLetter from "./components/NewsLetter";
 
 const Page: React.FC = () => {
   return (
@@ -10,6 +11,13 @@ const Page: React.FC = () => {
 
 
       <ActivitiesForTraveler></ActivitiesForTraveler>
+
+
+
+
+      <section className="">
+        <NewsLetter></NewsLetter>
+      </section>
     </div>
   );
 };

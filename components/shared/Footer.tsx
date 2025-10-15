@@ -8,6 +8,15 @@ import { FaFacebookF, FaTwitter, FaYoutube, FaLinkedinIn, FaInstagram } from "re
 import imagebg from "../../public/Section/umnralla.png";
 // import footerLogo from "../../public/logo/dark-logo.png";
 
+
+
+
+
+// Global use for width
+// w-[95%] lg:w-[1100px] xl:w-[1200px] 2xl:w-[1700px] mx-auto
+
+
+
 interface FooterLink {
   id: number;
   name: string;
@@ -16,47 +25,47 @@ interface FooterLink {
 
 const Footer: React.FC = () => {
   const footerPages: FooterLink[] = [
-    { id: 1, name: "Privacy Policy", href: "/privacy" },
+    { id: 1, name: "Privacy Policy",     href: "/privacy" },
     { id: 2, name: "Terms & Conditions", href: "/terms" },
-    { id: 3, name: "Cookie Policy", href: "/cookies" },
+    { id: 3, name: "Cookie Policy",      href: "/cookies" },
   ];
 
   const social = [
-    { id: 1, name: "Facebook", icon: <FaFacebookF />, href: "https://facebook.com" },
-    { id: 2, name: "Twitter", icon: <FaTwitter />, href: "https://twitter.com" },
-    { id: 3, name: "YouTube", icon: <FaYoutube />, href: "https://youtube.com" },
-    { id: 4, name: "LinkedIn", icon: <FaLinkedinIn />, href: "https://linkedin.com" },
+    { id: 1, name: "Facebook",  icon: <FaFacebookF />,  href: "https://facebook.com" },
+    { id: 2, name: "Twitter",   icon: <FaTwitter />,     href: "https://twitter.com" },
+    { id: 3, name: "YouTube",   icon: <FaYoutube />,     href: "https://youtube.com" },
+    { id: 4, name: "LinkedIn",  icon: <FaLinkedinIn />, href: "https://linkedin.com" },
     { id: 5, name: "Instagram", icon: <FaInstagram />, href: "https://instagram.com" },
   ];
 
   const Tours: FooterLink[] = [
-    { id: 1, name: "All Tours", href: "/tours" },
-    { id: 2, name: "Popular Tours", href: "/tours/popular" },
+    { id: 1, name: "All Tours",       href: "/tours" },
+    { id: 2, name: "Popular Tours",   href: "/tours/popular" },
     { id: 3, name: "Custom Packages", href: "/tours/custom" },
-    { id: 4, name: "Booking", href: "/booking" },
-    { id: 5, name: "Destinations", href: "/destinations" },
+    { id: 4, name: "Booking",         href: "/booking" },
+    { id: 5, name: "Destinations",    href: "/destinations" },
   ];
 
   const Company: FooterLink[] = [
-    { id: 1, name: "About Us", href: "/about" },
-    { id: 2, name: "Blog", href: "/blog" },
+    { id: 1, name: "About Us",     href: "/about" },
+    { id: 2, name: "Blog",         href: "/blog" },
     { id: 3, name: "How it Works", href: "/how-it-works" },
-    { id: 4, name: "Careers", href: "/careers" },
-    { id: 5, name: "Pricing", href: "/pricing" },
+    { id: 4, name: "Careers",      href: "/careers" },
+    { id: 5, name: "Pricing",      href: "/pricing" },
   ];
 
   const Support: FooterLink[] = [
-    { id: 1, name: "Help Center", href: "/help" },
-    { id: 2, name: "FAQs", href: "/faqs" },
+    { id: 1, name: "Help Center",     href: "/help" },
+    { id: 2, name: "FAQs",            href: "/faqs" },
     { id: 3, name: "Contact Support", href: "/support" },
-    { id: 4, name: "Community", href: "/community" },
-    { id: 5, name: "Feedback", href: "/feedback" },
+    { id: 4, name: "Community",       href: "/community" },
+    { id: 5, name: "Feedback",        href: "/feedback" },
   ];
 
   return (
-    <div className="">
+    <div className=" bg-[#F9FAFB]">
       
-      <div className="max-w-[2500px] mx-auto pt-10 px-10 rounded-t-2xl bg-black text-white border  relative">
+      <div className="w-[95%] lg:w-[1100px] xl:w-[1200px] 2xl:w-[1700px] mx-auto pt-10 px-10 rounded-t-2xl bg-black text-white border  relative">
         
         <div className="flex flex-col lg:flex-row justify-between gap-5 md:gap-20  pb-10">
           {/* Logo + description + social icons */}
